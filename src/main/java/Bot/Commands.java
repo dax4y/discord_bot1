@@ -10,6 +10,32 @@ public class Commands extends ListenerAdapter {
         String[] args = event.getMessage().getContentRaw().split(" ");
         String name = event.getMember().getUser().getName();
 
+        //
+        if(args[0].equalsIgnoreCase(Bot.prefix + "commands")) {
+            EmbedBuilder role = new EmbedBuilder();
+            role.setTitle("→Commands that i know: <:hacker:807330475600248833> ");
+            role.addField("- - - - - - - - - - - - - - -\n" +
+                            "→Hello, my name is 'Dax BOT (.)' and i am bot created by @Dax.\n I am sill learning so stfu.\n",
+                      "→My primary work is updating and improving this this server,\n" +
+                            " you can use me by typing this command: \n" +
+                            " *** ✅♻️   have fun  ♻️✅ ***\n" +
+                            "-\n"+
+                            ".info \n" +
+                            "-\n"+
+                            ".hello/hi \n" +
+                            "-\n"+
+                            ".hello/hi <somebody> \n" +
+                            "-\n"+
+                            ".avatar <somebody>" +
+                            "-\n"+
+                            ".bot" , false);
+
+            event.getChannel().sendMessage(role.build()).queue();
+            role.clear();
+        }
+
+
+        //role info
         if(args[0].equalsIgnoreCase(Bot.prefix + "use")) {
             EmbedBuilder role = new EmbedBuilder();
             role.setTitle("→Role activation: ");
@@ -19,15 +45,15 @@ public class Commands extends ListenerAdapter {
                             " right button on this post and select out of these roles \n" +
                             " which you want to have. ✅\n" +
                               "-\n"+
-                            "<:crewmatee:807411213754957864>"+" - select for 'crew mate' (:crewmatee:)\n" +
+                            "<:crewmatee:807411213754957864>"+" : crew mate\n" +
                               "-\n"+
-                            "<:amoungus:807352151214129182>"+" - select for 'impostor' (:amoungus:)\n" +
+                            "<:amoungus:807352151214129182>"+" : impostor\n" +
                               "-\n"+
-                            "<:tudom:807059533062471790>"+" - select for role 'troll' (:tudom:)\n" +
+                            "<:tudom:807059533062471790>"+" : troll\n" +
                               "-\n"+
-                            "<:kekw:807414953585410089>"+" - select for 'autism' (:kekw:)\n" +
+                            "<:kekw:807414953585410089>"+" : autism\n" +
                               "-\n"+
-                            "<:200iq:807351737177866250>"+" - select for '200iq' (:200iq:)" , false);
+                            "<:200iq:807351737177866250>"+" : 200iq" , false);
 
             event.getChannel().sendMessage(role.build()).queue();
             role.clear();
@@ -92,12 +118,13 @@ public class Commands extends ListenerAdapter {
 
 
         //4 funny eat
-        if (args[0].equalsIgnoreCase(Bot.prefix + "eat") && args[1].equalsIgnoreCase(args[1])) {
+        if (args[0].equalsIgnoreCase(Bot.prefix + "stab") && args[1].equalsIgnoreCase(args[1])) {
             event.getChannel().sendTyping().queue();
-            event.getChannel().sendMessage("I will eat you \\<:hacker:807330475600248833>  "  + args[1] + " :)").queue();
+            event.getChannel().sendMessage("You stab 🔪🔪"  + args[1] + " :)").queue();
         }
 
-        if (args[0].equalsIgnoreCase(Bot.prefix + "test")) {
+        //5 test
+        if (args[0].equalsIgnoreCase(Bot.prefix + "bot")) {
             event.getChannel().sendMessage("<:hacker:807330475600248833>").queue();
         }
 
