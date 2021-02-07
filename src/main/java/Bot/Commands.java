@@ -13,21 +13,18 @@ public class Commands extends ListenerAdapter {
         //
         if(args[0].equalsIgnoreCase(Bot.prefix + "commands")) {
             EmbedBuilder role = new EmbedBuilder();
-            role.setTitle("→Commands that i know: <:hacker:807330475600248833> ");
+            role.setTitle("<:hacker:807330475600248833> Commands that i know: <:hacker:807330475600248833> ");
             role.addField("- - - - - - - - - - - - - - -\n" +
                             "→Hello, my name is 'Dax BOT (.)' and i am bot created by @Dax.\n I am sill learning so stfu.\n",
                       "→My primary work is updating and improving this this server,\n" +
                             " you can use me by typing this command: \n" +
-                            " *** ✅♻️   have fun  ♻️✅ ***\n" +
-                            "-\n"+
+                            " *** <:hacker:807330475600248833>♻️🟦   have fun  🟦 ♻️<:hacker:807330475600248833> ***\n" +
+                            "- - - - - - - - - - -\n"+
                             ".info \n" +
-                            "-\n"+
                             ".hello/hi \n" +
-                            "-\n"+
                             ".hello/hi <somebody> \n" +
-                            "-\n"+
-                            ".avatar <somebody>" +
-                            "-\n"+
+                            ".avatar <somebody>\n" +
+                            ".stab <somebody>\n" +
                             ".bot" , false);
 
             event.getChannel().sendMessage(role.build()).queue();
@@ -120,7 +117,7 @@ public class Commands extends ListenerAdapter {
         //4 funny eat
         if (args[0].equalsIgnoreCase(Bot.prefix + "stab") && args[1].equalsIgnoreCase(args[1])) {
             event.getChannel().sendTyping().queue();
-            event.getChannel().sendMessage("You stab 🔪🔪"  + args[1] + " :)").queue();
+            event.getChannel().sendMessage(name +" stab 🔪🔪"  + args[1] + " 💥").queue();
         }
 
         //5 test
