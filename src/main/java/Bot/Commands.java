@@ -10,13 +10,13 @@ public class Commands extends ListenerAdapter {
         String[] args = event.getMessage().getContentRaw().split(" ");
         String name = event.getMember().getUser().getName();
 
-        //
+        //bot commands list
         if(args[0].equalsIgnoreCase(Bot.prefix + "commands")) {
             EmbedBuilder role = new EmbedBuilder();
             role.setTitle("<:hacker:807330475600248833> Commands that i know: <:hacker:807330475600248833> ");
             role.addField("- - - - - - - - - - - - - - -\n" +
                             "→Hello, my name is 'Dax BOT (.)' and i am bot created by @Dax.\n I am sill learning so stfu.\n",
-                      "→My primary work is updating and improving this this server,\n" +
+                      "→My primary work is updating and improving this server,\n" +
                             " you can use me by typing this command: \n" +
                             " *** <:hacker:807330475600248833>♻️🟦   have fun  🟦 ♻️<:hacker:807330475600248833> ***\n" +
                             "- - - - - - - - - - -\n"+
@@ -56,12 +56,12 @@ public class Commands extends ListenerAdapter {
             role.clear();
         }
 
-        //1 creator info
+        //1 creator information
         if (args[0].equalsIgnoreCase(Bot.prefix + "info")) {
             EmbedBuilder info = new EmbedBuilder();
             info.setTitle("Dax-BOT (.)");
             info.setDescription("Developing and improving server.           \n My prefix is (.)");
-            info.addField("Creator", "jda java", false);
+            info.addField("For my commands type: ", "`.commands`", false);
             info.setColor(0x9342f5);
             info.setImage("https://github.com/dax4y/Foto.first/blob/main/hacker-2655534-2199228.png?raw=true");
             info.setFooter("Created by Dax", "https://github.com/dax4y/Foto.first/blob/main/IMG_3902.JPG?raw=true" ); //event.getMember().getUser().getAvatarUrl()
