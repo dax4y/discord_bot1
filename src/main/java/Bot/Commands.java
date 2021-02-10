@@ -22,13 +22,13 @@ public class Commands extends ListenerAdapter {
                             " you can use me by typing this command: \n" +
                             " *** <:hacker:807330475600248833>♻️🟦   have fun  🟦 ♻️<:hacker:807330475600248833> ***\n" +
                             "- - - - - - - - - - -\n"+
-                            ".info \n" +
-                            ".hello/hi || hello/hi <somebody> - edited\n" +
-                            ".avatar <somebody>\n" +
-                            ".stab <somebody>\n" +
-                            ".bye || bye <somebody> - new\n" +
-                            ".hug <somebody> - new\n" +
-                            ".bot" , false);
+                            "**.info** \n" +
+                            "**.hello/hi or hello/hi <somebody>** - edited \n" +
+                            "**.avatar <somebody>** \n" +
+                            "**.stab <somebody>** \n" +
+                            "**.bye or bye <somebody>** - new \n" +
+                            "**.hug <somebody>** - new \n" +
+                            "**.bot**" , false);
 
             event.getChannel().sendMessage(role.build()).queue();
             role.clear();
