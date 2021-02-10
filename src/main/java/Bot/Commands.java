@@ -120,7 +120,12 @@ public class Commands extends ListenerAdapter {
 
         if (args[0].equalsIgnoreCase(Bot.prefix + "hug") && args[1].equalsIgnoreCase(args[1])) {
             event.getChannel().sendTyping().queue();
-            event.getChannel().sendMessage(name + " " + hug[number] + " 🙈 " + args[1] + "a/u "+ emojihug[emoNumber]).queue();
+            EmbedBuilder error = new EmbedBuilder();
+            error.setColor(0x99ccff);
+            error.setTitle(name + " " + hug[number] + "  <:shibalovepic:809109564267036722>  " + args[1] + "a/u "+ emojihug[emoNumber] + ".");
+            error.setImage("https://media.tenor.com/images/8601403589f18983eddc14f71c80caa4/tenor.gif");    //love bear
+            event.getChannel().sendMessage(error.build()).queue();
+
         }
 
         //7 bye command
@@ -137,14 +142,14 @@ public class Commands extends ListenerAdapter {
             if (args.length < 2 ) {
                 EmbedBuilder error = new EmbedBuilder();
                 error.setColor(0x99ccff);
-                error.setTitle(bye[byeRandom] + " " + name + ".");
-                error.setImage("https://media.kulfyapp.com/ypMryE/ypMryE-shared.gif");    //jerry
+                error.setTitle(bye[byeRandom] + " " + name + ".  <:otzFine:809116359031259218> ");
+                error.setImage("https://media.tenor.com/images/8601403589f18983eddc14f71c80caa4/tenor.gif");    //lovebear
                 event.getChannel().sendMessage(error.build()).queue();
             }else{
                 EmbedBuilder error = new EmbedBuilder();
                 error.setColor(0x99ccff);
-                error.setTitle(bye[byeRandom] + " " + args[1] + ".");
-                error.setImage("https://media.kulfyapp.com/ypMryE/ypMryE-shared.gif");    //jerry
+                error.setTitle(bye[byeRandom] + " " + args[1] + ".  <:morfYear:809116280233263105> ");
+                error.setImage("https://media.tenor.com/images/8601403589f18983eddc14f71c80caa4/tenor.gif");    //love bear
                 event.getChannel().sendMessage(error.build()).queue();
             }
         }
