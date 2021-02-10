@@ -23,10 +23,11 @@ public class Commands extends ListenerAdapter {
                             " *** <:hacker:807330475600248833>♻️🟦   have fun  🟦 ♻️<:hacker:807330475600248833> ***\n" +
                             "- - - - - - - - - - -\n"+
                             ".info \n" +
-                            ".hello/hi \n" +
-                            ".hello/hi <somebody> \n" +
+                            ".hello/hi || hello/hi <somebody> - edited\n" +
                             ".avatar <somebody>\n" +
                             ".stab <somebody>\n" +
+                            ".bye || bye <somebody> - new\n" +
+                            ".hug <somebody> - new\n" +
                             ".bot" , false);
 
             event.getChannel().sendMessage(role.build()).queue();
@@ -123,7 +124,7 @@ public class Commands extends ListenerAdapter {
             EmbedBuilder error = new EmbedBuilder();
             error.setColor(0x99ccff);
             error.setTitle(name + " " + hug[number] + "  <:shibalovepic:809109564267036722>  " + args[1] + "a/u "+ emojihug[emoNumber] + ".");
-            error.setImage("https://media.tenor.com/images/8601403589f18983eddc14f71c80caa4/tenor.gif");    //love bear
+            //error.setImage("https://media.tenor.com/images/8601403589f18983eddc14f71c80caa4/tenor.gif");
             event.getChannel().sendMessage(error.build()).queue();
 
         }
@@ -132,7 +133,7 @@ public class Commands extends ListenerAdapter {
         String[] bye = {
                 "Byeee",
                 "Adios",
-                "Have a nice day",
+                "Take a rest",
         };
 
         int byeRandom = rand.nextInt(hug.length);
@@ -143,13 +144,13 @@ public class Commands extends ListenerAdapter {
                 EmbedBuilder error = new EmbedBuilder();
                 error.setColor(0x99ccff);
                 error.setTitle(bye[byeRandom] + " " + name + ".  <:otzFine:809116359031259218> ");
-                error.setImage("https://media.tenor.com/images/8601403589f18983eddc14f71c80caa4/tenor.gif");    //lovebear
+                error.setImage("https://media.tenor.com/images/de9af7116ae81f8d7e365015f3526ba4/tenor.gif");    //bye small boy
                 event.getChannel().sendMessage(error.build()).queue();
             }else{
                 EmbedBuilder error = new EmbedBuilder();
                 error.setColor(0x99ccff);
                 error.setTitle(bye[byeRandom] + " " + args[1] + ".  <:morfYear:809116280233263105> ");
-                error.setImage("https://media.tenor.com/images/8601403589f18983eddc14f71c80caa4/tenor.gif");    //love bear
+                error.setImage("https://media.tenor.com/images/de9af7116ae81f8d7e365015f3526ba4/tenor.gif");    //bye small boy
                 event.getChannel().sendMessage(error.build()).queue();
             }
         }
