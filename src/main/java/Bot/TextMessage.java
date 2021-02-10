@@ -45,7 +45,7 @@ public class TextMessage extends ListenerAdapter {
                         "Užívajte server a jeho výhody. \n" +
                         "Pekný zvyšok večera. @Dax <:dax:807352185713065995> ";
 
-        if (args[0].equalsIgnoreCase(Bot.prefix + "ann")) {
+        if (args[0].equalsIgnoreCase(Bot.prefix + "announcmentblocked")) {
             event.getChannel().sendMessage(messages).queue();
         }
 

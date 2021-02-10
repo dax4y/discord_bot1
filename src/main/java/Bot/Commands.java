@@ -4,6 +4,8 @@ import net.dv8tion.jda.api.EmbedBuilder;
 import net.dv8tion.jda.api.events.message.MessageReceivedEvent;
 import net.dv8tion.jda.api.hooks.ListenerAdapter;
 
+import java.util.Random;
+
 public class Commands extends ListenerAdapter {
 
     public void onMessageReceived(MessageReceivedEvent event) {
@@ -47,42 +49,39 @@ public class Commands extends ListenerAdapter {
         }
 
         //2 hello command
+        String[] hello = {
+                "Hello",
+                "Hi",
+                "Adios",
+                "Čavelo",
+                "Zdrow",
+                "Fuck you",
+        };
+        Random rand = new Random();
+        int helloRandom = rand.nextInt(hello.length);
+
         if (args[0].equalsIgnoreCase(Bot.prefix + "hi" ) || args[0].equalsIgnoreCase(Bot.prefix + "hello" )){
             if (args.length < 2 ) {
                 //2 hello name command
                 if (!event.getMember().getUser().isBot()) {
-                    if(args[0].equalsIgnoreCase(Bot.prefix + "hi")){
+                    if(args[0].equalsIgnoreCase(Bot.prefix + "hi") || args[0].equalsIgnoreCase(Bot.prefix + "hello")){
                         event.getChannel().sendTyping().queue();
                         EmbedBuilder error = new EmbedBuilder();
                         error.setColor(0x99ccff);
-                        error.setTitle("🙋‍️ Helloo " + name + ".");
-                        error.setImage("https://media.tenor.com/images/acc4116372dcc4b342cb1a00ae657151/tenor.gif");
-                        event.getChannel().sendMessage(error.build()).queue();
-                    }else if(args[0].equalsIgnoreCase(Bot.prefix + "hello")) {
-                        event.getChannel().sendTyping().queue();
-                        EmbedBuilder error = new EmbedBuilder();
-                        error.setColor(0x99ccff);
-                        error.setTitle("🙋‍️ Hi " + name + ".");
-                        error.setImage("https://media.tenor.com/images/acc4116372dcc4b342cb1a00ae657151/tenor.gif");
+                        error.setTitle("️<:morfTH:809116280795824198> " + hello[helloRandom] + " " + name + ".");
+                        error.setImage("https://media.tenor.com/images/acc4116372dcc4b342cb1a00ae657151/tenor.gif");    //pingui
                         event.getChannel().sendMessage(error.build()).queue();
                     }
                 }
             }else{
                 //3 hello someone
                 if (!event.getMember().getUser().isBot()) {
-                    if (args[0].equalsIgnoreCase(Bot.prefix + "hi")) {
+                    if (args[0].equalsIgnoreCase(Bot.prefix + "hi") || args[0].equalsIgnoreCase(Bot.prefix + "hello")) {
                         event.getChannel().sendTyping().queue();
                         EmbedBuilder error = new EmbedBuilder();
                         error.setColor(0xff8533);
-                        error.setTitle("🔪 Hello  " + args[1] + ".");
-                        error.setImage("https://media.tenor.com/images/2ef18a7ae12bd7ddf98d8c071a5c8640/tenor.gif");
-                        event.getChannel().sendMessage(error.build()).queue();
-                    } else if (args[0].equalsIgnoreCase(Bot.prefix + "hello")) {
-                        event.getChannel().sendTyping().queue();
-                        EmbedBuilder error = new EmbedBuilder();
-                        error.setColor(0xff8533);
-                        error.setTitle("🔪 Hi  " + args[1] + ".");
-                        error.setImage("https://media.tenor.com/images/2ef18a7ae12bd7ddf98d8c071a5c8640/tenor.gif");
+                        error.setTitle("<:shibaHmmm:809103770360873040> " + hello[helloRandom] + " " + args[1] + ".");
+                        error.setImage("https://pandagif.com/gifs/ClekxvrYAj.gif"); //dog
                         event.getChannel().sendMessage(error.build()).queue();
                     }
                 }
@@ -99,6 +98,55 @@ public class Commands extends ListenerAdapter {
         //5 bot picture
         if (args[0].equalsIgnoreCase(Bot.prefix + "bot")) {
             event.getChannel().sendMessage("<:hacker:807330475600248833>").queue();
+        }
+
+        //6 hug command
+        String[] hug = {
+                "vymojkal",
+                "objal",
+                "poláskal",
+                "poslal pusu",
+        };
+        String[] emojihug = {
+                "<:pepolove:809103769454379068> ",
+                "<:cahlLoved:809116012582010910> ",
+                "<:otzBlush:809116359367327754> ",
+                "<:shibalovepic:809109564267036722> ",
+        };
+
+        int number = rand.nextInt(hug.length);
+        int emoNumber = rand.nextInt(emojihug.length);
+
+
+        if (args[0].equalsIgnoreCase(Bot.prefix + "hug") && args[1].equalsIgnoreCase(args[1])) {
+            event.getChannel().sendTyping().queue();
+            event.getChannel().sendMessage(name + " " + hug[number] + " 🙈 " + args[1] + "a/u "+ emojihug[emoNumber]).queue();
+        }
+
+        //7 bye command
+        String[] bye = {
+                "Byeee",
+                "Adios",
+                "Have a nice day",
+        };
+
+        int byeRandom = rand.nextInt(hug.length);
+
+        if (args[0].equalsIgnoreCase(Bot.prefix + "bye") ){
+            event.getChannel().sendTyping().queue();
+            if (args.length < 2 ) {
+                EmbedBuilder error = new EmbedBuilder();
+                error.setColor(0x99ccff);
+                error.setTitle(bye[byeRandom] + " " + name + ".");
+                error.setImage("https://media.kulfyapp.com/ypMryE/ypMryE-shared.gif");    //jerry
+                event.getChannel().sendMessage(error.build()).queue();
+            }else{
+                EmbedBuilder error = new EmbedBuilder();
+                error.setColor(0x99ccff);
+                error.setTitle(bye[byeRandom] + " " + args[1] + ".");
+                error.setImage("https://media.kulfyapp.com/ypMryE/ypMryE-shared.gif");    //jerry
+                event.getChannel().sendMessage(error.build()).queue();
+            }
         }
 
     }
