@@ -10,7 +10,7 @@ public class Commands extends ListenerAdapter {
         String[] args = event.getMessage().getContentRaw().split(" ");
         String name = event.getMember().getUser().getName();
 
-        //bot commands list
+        //COMMAND LIST
         if(args[0].equalsIgnoreCase(Bot.prefix + "commands")) {
             EmbedBuilder role = new EmbedBuilder();
             role.setTitle("<:hacker:807330475600248833> Commands that i know: <:hacker:807330475600248833> ");
@@ -31,30 +31,6 @@ public class Commands extends ListenerAdapter {
             role.clear();
         }
 
-
-        //role info
-        if(args[0].equalsIgnoreCase(Bot.prefix + "use")) {
-            EmbedBuilder role = new EmbedBuilder();
-            role.setTitle("→Role activation: ");
-            role.addField("- - - - - - - - - - - - - - -\n" +
-                            "→Hello guys in this section we will make some crazy stuff.",
-                      "→The only thing you have to do is to click with the \n" +
-                            " right button on this post and select out of these roles \n" +
-                            " which you want to have. ✅\n" +
-                              "-\n"+
-                            "<:crewmatee:807411213754957864>"+" : crew mate\n" +
-                              "-\n"+
-                            "<:amoungus:807352151214129182>"+" : impostor\n" +
-                              "-\n"+
-                            "<:tudom:807059533062471790>"+" : troll\n" +
-                              "-\n"+
-                            "<:kekw:807414953585410089>"+" : autism\n" +
-                              "-\n"+
-                            "<:200iq:807351737177866250>"+" : 200iq" , false);
-
-            event.getChannel().sendMessage(role.build()).queue();
-            role.clear();
-        }
 
         //1 creator information
         if (args[0].equalsIgnoreCase(Bot.prefix + "info")) {
@@ -114,20 +90,17 @@ public class Commands extends ListenerAdapter {
         }
 
 
-        //4 funny eat
+        //4 Stab Someone
         if (args[0].equalsIgnoreCase(Bot.prefix + "stab") && args[1].equalsIgnoreCase(args[1])) {
             event.getChannel().sendTyping().queue();
             event.getChannel().sendMessage(name +" stab 🔪🔪"  + args[1] + " 💥").queue();
         }
 
-        //5 test
+        //5 bot picture
         if (args[0].equalsIgnoreCase(Bot.prefix + "bot")) {
             event.getChannel().sendMessage("<:hacker:807330475600248833>").queue();
         }
 
-
-
     }
-
 
 }

@@ -21,6 +21,7 @@ public class Bot {
         jda.addEventListener(new Clear());
         jda.addEventListener(new UserInfo());
         jda.addEventListener(new RoleReactions());
+        jda.addEventListener(new TextMessage());
 
     }
 }
