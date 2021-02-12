@@ -5,7 +5,6 @@ import net.dv8tion.jda.api.entities.Role;
 import net.dv8tion.jda.api.events.guild.member.GuildMemberJoinEvent;
 import net.dv8tion.jda.api.hooks.ListenerAdapter;
 
-import java.util.Objects;
 import java.util.Random;
 
 public class Roles extends ListenerAdapter {
@@ -43,12 +42,14 @@ public class Roles extends ListenerAdapter {
         join.setColor(0x66d8ff);
         join.setTitle("SERVER UPDATE");
         join.setDescription(messages[number].replace("[member]", event.getMember().getAsMention()));
+        event.getGuild().getDefaultChannel().sendMessage(join.build()).queue();
 
-        Objects.requireNonNull(event.getGuild().getDefaultChannel()).sendMessage(join.build()).complete();
+
 
         //add role
-        event.getGuild().addRoleToMember(event.getMember(), (Role) event.getGuild().getRolesByName("member", true)).complete();
-        //event.getGuild().addRoleToMember(event.getMember(), (Role) event.getGuild().getRoleById("member", true)).queue();
+        event.getGuild().addRoleToMember(event.getMember(), event.getGuild().getRoleById(809751992704303126L)).complete();
+
+        event.getGuild().addRoleToMember(event.getMember(), (Role) event.getGuild().getRolesByName("Member", true)).complete();
 
     }
 
