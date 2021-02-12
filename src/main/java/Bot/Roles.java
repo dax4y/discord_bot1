@@ -1,7 +1,6 @@
 package Bot;
 
 import net.dv8tion.jda.api.EmbedBuilder;
-import net.dv8tion.jda.api.entities.Role;
 import net.dv8tion.jda.api.events.guild.member.GuildMemberJoinEvent;
 import net.dv8tion.jda.api.hooks.ListenerAdapter;
 
@@ -47,10 +46,17 @@ public class Roles extends ListenerAdapter {
 
 
         //add role
-        event.getGuild().addRoleToMember(event.getMember(), event.getGuild().getRoleById(809751992704303126L)).complete();
 
-        event.getGuild().addRoleToMember(event.getMember(), (Role) event.getGuild().getRolesByName("Member", true)).complete();
-
+    //    event.getGuild().addRoleToMember(event.getMember(), event.getGuild().getRoleById(809751992704303126L)).complete();
+    //   event.getGuild().getController().addRoleToMember(event.getMember(), event.getGuild().getRoleById(809751992704303126L)).complete();
+    //    event.getGuild().addRoleToMember(event.getMember(), (Role) event.getGuild().getRolesByName("member", true)).complete();
+        event.getGuild().modifyMemberRoles(event.getMember(), event.getGuild().getRolesByName("member", true)).complete();
     }
+
+//    public void onGuildMemberRoleAdd(GuildMemberRoleAddEvent event){
+//        event.getGuild().addRoleToMember(event.getMember(), event.getGuild().getRoleById(809751992704303126L)).complete();
+//        //   event.getGuild().getController().addRoleToMember(event.getMember(), event.getGuild().getRoleById(809751992704303126L)).complete();
+//        event.getGuild().addRoleToMember(event.getMember(), (Role) event.getGuild().getRolesByName("member", true)).complete();
+//    }
 
 }
