@@ -12,7 +12,7 @@ public class Bot {
     public static String prefix = ".";
 
     public static void main(String[] args) throws Exception {
-        jda = new JDABuilder().createDefault("ODA2NTU0OTgyMDI3NDkzNDQ2.YBrI3A.DyIMh7RpXifYxUxoAETPcXqMB1w").build(); //(AccountType.BOT).setToken
+        jda = new JDABuilder().setToken("ODA2NTU0OTgyMDI3NDkzNDQ2.YBrI3A.DyIMh7RpXifYxUxoAETPcXqMB1w").build(); //(AccountType.BOT).setToken
         jda.getPresence().setStatus(OnlineStatus.ONLINE);
         jda.getPresence().setActivity(Activity.playing("developing java"));
 
