@@ -1,9 +1,12 @@
 package Bot;
 
-import net.dv8tion.jda.api.EmbedBuilder;
+import net.dv8tion.jda.api.entities.TextChannel;
 import net.dv8tion.jda.api.events.guild.member.GuildMemberJoinEvent;
+import net.dv8tion.jda.api.events.guild.member.GuildMemberLeaveEvent;
 import net.dv8tion.jda.api.hooks.ListenerAdapter;
 
+import javax.annotation.Nonnull;
+import java.util.List;
 import java.util.Random;
 
 public class Roles extends ListenerAdapter {
@@ -32,7 +35,7 @@ public class Roles extends ListenerAdapter {
 //            "Ready player [member]"
     };
 
-    public void onGuildMemberJoin(GuildMemberJoinEvent event){
+/*    public void onGuildMemberJoin(GuildMemberJoinEvent event){
         //join emblem
         Random rand = new Random();
         int number = rand.nextInt(messages.length);
@@ -49,6 +52,38 @@ public class Roles extends ListenerAdapter {
     //    event.getGuild().addRoleToMember(event.getMember(), event.getGuild().getRoleById(809751992704303126L)).complete();
     //   event.getGuild().getController().addRoleToMember(event.getMember(), event.getGuild().getRoleById(809751992704303126L)).complete();
         event.getGuild().modifyMemberRoles(event.getMember(), event.getGuild().getRolesByName("member", true)).complete();
-    }
+    }*/
 
+    @Override
+    public void onGuildMemberJoin(@Nonnull GuildMemberJoinEvent event){
+        final List<TextChannel> listOfChannel = event.getGuild().getTextChannelsByName("server", true);
+
+        if(listOfChannel.isEmpty()){
+            return;
+        }
+        Random rand = new Random();
+        int number = rand.nextInt(messages.length);
+
+        final TextChannel channelPlsChannel = listOfChannel.get(0);
+
+        final String userGuildSpecificSettingsInstead = String.format("Welcome %s to %s", event.getMember().getUser().getAsTag(),
+                event.getGuild().getName());
+
+        channelPlsChannel.sendMessage(userGuildSpecificSettingsInstead).queue();
+    }
+    @Override
+    public void onGuildMemberLeave(@Nonnull GuildMemberLeaveEvent event){
+        final List<TextChannel> listOfChannel = event.getGuild().getTextChannelsByName("server", true);
+
+        if(listOfChannel.isEmpty()){
+            return;
+        }
+
+        final TextChannel channel = listOfChannel.get(0);
+
+        final String userGuildSpecificSettingsInstead = String.format("Goodbye %s to %s", event.getMember().getUser().getAsTag(),
+                event.getGuild().getName());
+
+        channel.sendMessage(userGuildSpecificSettingsInstead).queue();
+    }
 }
