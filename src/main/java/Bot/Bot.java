@@ -1,6 +1,5 @@
 package Bot;
 
-import Bot.scraping.DailyMessage;
 import net.dv8tion.jda.api.JDA;
 import net.dv8tion.jda.api.JDABuilder;
 import net.dv8tion.jda.api.OnlineStatus;
@@ -25,11 +24,10 @@ public class Bot implements Runnable {
                     "Pozitívne testovaných ľudí pribudlo " + "\n" +
                     "Za posledný deň zomrelo " + "\n" +
                     "Taktiež jedna z vecí ktoré pribudli na serveri sú nové Emoji";
+
     public void run() {
         System.out.println("TEST");
-        for(int i = 1; i != 2; i++) {
-            jda.addEventListener(new DailyMessage());
-        }
+
     }
 
     public static void dailyUpdate(){
