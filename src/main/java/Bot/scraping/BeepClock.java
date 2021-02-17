@@ -1,32 +1,12 @@
 package Bot.scraping;
 
-import java.util.concurrent.Executors;
-import java.util.concurrent.ScheduledExecutorService;
-import java.util.concurrent.TimeUnit;
-
-public class BeepClock implements Runnable {
-
-    public void run(){
-        System.out.println("Test");
-    }
-
-    public static void dailyUpdate(){
-        ScheduledExecutorService scheduler = Executors.newSingleThreadScheduledExecutor();
-
-        Runnable task = new BeepClock();
-        int initialDelay = 4;
-        int periodicDelay = 2;
-        scheduler.scheduleAtFixedRate(task, initialDelay, periodicDelay, TimeUnit.SECONDS);
-    }
-
+/*
+public class BeepClock extends ListenerAdapter implements Runnable {
 
 
     public static void main(String[] args) {
-
-
-
         //html scraping data
-        /*
+
         final String url = "https://web.archive.org/web/20190104110157/http://shares.telegraph.co.uk/indices/?index=MCX";
 
         try{
@@ -54,7 +34,7 @@ public class BeepClock implements Runnable {
         catch (Exception ex){
             ex.printStackTrace();
 
-        }*/
+        }
     }
 
-}
+}*/
