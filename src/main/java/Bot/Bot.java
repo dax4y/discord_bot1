@@ -1,5 +1,6 @@
 package Bot;
 
+import Bot.scraping.BeepClock;
 import net.dv8tion.jda.api.JDA;
 import net.dv8tion.jda.api.JDABuilder;
 import net.dv8tion.jda.api.OnlineStatus;
@@ -22,6 +23,10 @@ public class Bot {
         jda.addEventListener(new UserInfo());
         jda.addEventListener(new RoleReactions());
         jda.addEventListener(new TextMessage());
+
+
+        //Daily scheduled update icon
+        BeepClock.dailyUpdate();
 
     }
 }
