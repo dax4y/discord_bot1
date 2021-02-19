@@ -7,15 +7,19 @@ import java.util.concurrent.Executors;
 import java.util.concurrent.ScheduledExecutorService;
 import java.util.concurrent.TimeUnit;
 
-public class DailyMessage implements Runnable {
+public class DailyMessage extends ScrapingData implements Runnable {
     JDA jda = Bot.getJda();
+
+
     String dailyAnnouncements =
-            "__**DAILY AUTO-UPDATE INFO**__ \n\n" +
-                    "**COVID **\n\n" +
-                    "Vykonaných PCR testov bolo " + "\n" +
-                    "Pozitívne testovaných ľudí pribudlo " + "\n" +
+                    "__**DAILY AUTO-UPDATE INFO**__ \n\n" +
+                    "**COVID**\n\n" +
+                    "Vykonaných PCR testov bolo " + getAllT() +" obeti \n" +
+                    "Pozitívne testovaných ľudí pribudlo " + getPcrP() +"\n" +
                     "Za posledný deň zomrelo " + "\n" +
                     "Taktiež jedna z vecí ktoré pribudli na serveri sú nové Emoji";
+
+    //scheduler loop
     @Override
     public void run() {
         TextChannel textChannel = jda.getTextChannelById(806591609789218829L);
@@ -26,11 +30,9 @@ public class DailyMessage implements Runnable {
         ScheduledExecutorService scheduler = Executors.newSingleThreadScheduledExecutor();
 
         Runnable task = new DailyMessage();
-        int initialDelay = 1;
-        int periodicDelay = 30;
-        scheduler.scheduleAtFixedRate(task,initialDelay , periodicDelay, TimeUnit.SECONDS);
-
-        //event.getTextChannelById(806591609789218829L).sendMessage(dailyAnnouncements).queue();
+        int initialDelay = 0;
+        int periodicDelay = 1;
+        scheduler.scheduleAtFixedRate(task,initialDelay , periodicDelay, TimeUnit.HOURS);
 
     }
 }
