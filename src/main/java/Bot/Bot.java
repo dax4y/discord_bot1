@@ -39,6 +39,7 @@ public class Bot  {
         dailyMessage.setTest(scraping.getAllT());
         dailyMessage.setDeathGuys(scraping.getDeathP());
         dailyMessage.setVaccineNumber(scraping.getVac11());
+        dailyMessage.setNameDay(scraping.getNameDayFinal());
 
         dailyMessage.messageOfTheData();
         dailyMessage.run();

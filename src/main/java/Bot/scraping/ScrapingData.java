@@ -14,6 +14,7 @@ public class ScrapingData {
     private int vaccine;
     private String vac11;
     private String vac22;
+    private String nameDayFinal;
 
 
 
@@ -47,13 +48,14 @@ public class ScrapingData {
         vac11 = vac1;
         vac22 = vac2;
 
-        final String url2 = "https://www.zones.sk/kalendar-udalosti/meniny/";
+        final String url2 = "https://calendar.zoznam.sk/nameday-sksxhor.php";
         Document doc = Jsoup.connect(url2).get();
         //5.
-        Elements nameD = doc.select("#zmena_casu .zmena_datum_meniny [href]");
-        String nameDay = nameD.text().replace("", "");
-        //System.out.println("meniny " + nameD);
-
+        Elements nameD = doc.select("#container #header #headline2 #headline21 ");
+        String nameDay = nameD.text().replace("meniny <div id=\"headline21\">", "");
+        String name = nameDay.substring( 0, nameDay.indexOf(","));
+        //System.out.println("meniny: " + name);
+        nameDayFinal = name;
 
 //        newe = ticker.substring(0, 3);
     }
@@ -86,4 +88,7 @@ public class ScrapingData {
         return vac22;
     }
 
+    public String getNameDayFinal() {
+        return nameDayFinal;
+    }
 }

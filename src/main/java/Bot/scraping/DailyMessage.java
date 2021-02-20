@@ -15,6 +15,7 @@ public class DailyMessage implements Runnable {
     private String pcr = "";
     private String deathGuys = "";
     private String vaccineNumber = "";
+    private String nameDay = "";
 
     public void setTest(String test) {
         this.test = test;
@@ -32,19 +33,23 @@ public class DailyMessage implements Runnable {
         this.vaccineNumber = vaccineNumber;
     }
 
+    public void setNameDay(String nameDay) {
+        this.nameDay = nameDay;
+    }
+
     public String text() {
         String dailyAnnouncements =
                         "\n" +
-                        "__**DAILY AUTO-UPDATE INFO**__ \n\n" +
-                        "**COVID**\n\n" +
-                        "Vykonaných PCR testov bolo **" + test + "** obeti \n" +
-                        "Pozitívne testovaných ľudí pribudlo **" + pcr + "**\n" +
-                        "Za posledný deň zomrelo **" + deathGuys +"**\n" +
+                        "__**DAILY AUTO-UPDATE INFO**__📨 \n\n" +
+                        "🦠***COVID***🦠\n\n" +
+                        "Vykonaných PCR testov bolo **" + test + "**.\n" +
+                        "Pozitívne testovaných ľudí pribudlo **" + pcr + "**.\n" +
+                        "Za posledný deň zomrelo **" + deathGuys +"**.\n" +
                         "Zaočkovalo sa **"+ vaccineNumber +"**\n\n"+
-                        "**Dnes má meniny**\n" +
-                        " ...\n\n" +
+                        "🎈***Dnes má meniny***🎈\n" +
+                        "*"+ nameDay +"*  🎁\n\n" +
                         "@pig" +
-                        "\n\nAk mechceš dostávať upozornenia tohto typu, stačí použiť .unsub Daily Updates\n"
+                        "\n\n*Ak mechceš dostávať upozornenia tohto typu, stačí použiť .unsub Daily Updates*\n"
                         ;
         return dailyAnnouncements;
     }
