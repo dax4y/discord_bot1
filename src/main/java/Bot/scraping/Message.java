@@ -5,15 +5,17 @@ public class Message {
     private String test = "";
     private String pcr = "";
     private String deathGuys = "";
-    private String vaccineNumber = "";
     private String nameDay = "";
+    private String vaccineFirst;
+    private String vaccineSecond;
 
-    public Message(String test, String pcr, String deathGuys, String vaccineNumber, String nameDay) {
+    public Message(String test, String pcr, String deathGuys, String nameDay, String vaccineFirst, String vaccineSecond) {
         this.test = test;
         this.pcr = pcr;
         this.deathGuys = deathGuys;
-        this.vaccineNumber = vaccineNumber;
         this.nameDay = nameDay;
+        this.vaccineFirst = vaccineFirst;
+        this.vaccineSecond = vaccineSecond;
     }
 
     public String getTest() {
@@ -28,8 +30,12 @@ public class Message {
         return deathGuys;
     }
 
-    public String getVaccineNumber() {
-        return vaccineNumber;
+    public String getVaccineFirst() {
+        return vaccineFirst;
+    }
+
+    public String getVaccineSecond() {
+        return vaccineSecond;
     }
 
     public String getNameDay() {
