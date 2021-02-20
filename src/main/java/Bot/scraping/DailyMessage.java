@@ -66,7 +66,7 @@ public class DailyMessage implements Runnable {
 
         Runnable task = new DailyMessage();
         int initialDelay = 1;
-        int periodicDelay = 1;
+        int periodicDelay = 30;
         scheduler.scheduleAtFixedRate(task,initialDelay , periodicDelay, TimeUnit.MINUTES);
 
     }

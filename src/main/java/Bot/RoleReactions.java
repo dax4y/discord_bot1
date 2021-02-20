@@ -1,5 +1,6 @@
 package Bot;
 
+import net.dv8tion.jda.api.events.message.MessageReceivedEvent;
 import net.dv8tion.jda.api.events.message.guild.react.GuildMessageReactionAddEvent;
 import net.dv8tion.jda.api.events.message.react.MessageReactionRemoveEvent;
 import net.dv8tion.jda.api.hooks.ListenerAdapter;
@@ -50,6 +51,29 @@ public class RoleReactions extends ListenerAdapter {
                 return;
             }
             e.getGuild().removeRoleFromMember(e.getUserId(), e.getJDA().getRoleById(roleID)).queue();
+        }
+    }
+
+    //sub and unsub roles
+    public void onMessageReceived(MessageReceivedEvent e) {
+        String[] args = e.getMessage().getContentRaw().split(" ");
+        //unsub
+        if(args[0].equalsIgnoreCase(Bot.prefix + "unsub") && args[1].equalsIgnoreCase("Daily")
+                && args[2].equalsIgnoreCase("info")) {
+
+            Long roleID = 812324646229770300L;
+            e.getGuild().removeRoleFromMember(e.getMember(), e.getJDA().getRoleById(roleID)).queue();
+            e.getChannel().sendMessage("Done, now you are not subscribe Daily info.").queue();
+
+        }
+        //sub
+        if(args[0].equalsIgnoreCase(Bot.prefix + "sub") && args[1].equalsIgnoreCase("Daily")
+                && args[2].equalsIgnoreCase("info")) {
+
+            Long roleID = 812324646229770300L;
+            e.getGuild().addRoleToMember(e.getMember(), e.getJDA().getRoleById(roleID)).queue();
+            e.getChannel().sendMessage("Done, you are started subscribe Daily info.").queue();
+
         }
     }
 }
