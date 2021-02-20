@@ -3,15 +3,18 @@ package Bot.scraping;
 import Bot.Bot;
 import net.dv8tion.jda.api.JDA;
 import net.dv8tion.jda.api.entities.TextChannel;
+
 import java.util.concurrent.Executors;
 import java.util.concurrent.ScheduledExecutorService;
 import java.util.concurrent.TimeUnit;
 
 public class DailyMessage implements Runnable {
     JDA jda = Bot.getJda();
-    Bot bot = new Bot();
+
     private String test = "";
     private String pcr = "";
+    private String deathGuys = "";
+    private String vaccineNumber = "";
 
     public void setTest(String test) {
         this.test = test;
@@ -21,16 +24,28 @@ public class DailyMessage implements Runnable {
         this.pcr = pcr;
     }
 
+    public void setDeathGuys(String deathGuys) {
+        this.deathGuys = deathGuys;
+    }
 
+    public void setVaccineNumber(String vaccineNumber) {
+        this.vaccineNumber = vaccineNumber;
+    }
 
     public String text() {
         String dailyAnnouncements =
-                "__**DAILY AUTO-UPDATE INFO**__ \n\n" +
+                        "\n" +
+                        "__**DAILY AUTO-UPDATE INFO**__ \n\n" +
                         "**COVID**\n\n" +
-                        "Vykonaných PCR testov bolo " + test + " obeti \n" +
-                        "Pozitívne testovaných ľudí pribudlo " + pcr + "\n" +
-                        "Za posledný deň zomrelo " + "\n" +
-                        "Taktiež jedna z vecí ktoré pribudli na serveri sú nové Emoji";
+                        "Vykonaných PCR testov bolo **" + test + "** obeti \n" +
+                        "Pozitívne testovaných ľudí pribudlo **" + pcr + "**\n" +
+                        "Za posledný deň zomrelo **" + deathGuys +"**\n" +
+                        "Zaočkovalo sa **"+ vaccineNumber +"**\n\n"+
+                        "**Dnes má meniny**\n" +
+                        " ...\n\n" +
+                        "@pig" +
+                        "\n\nAk mechceš dostávať upozornenia tohto typu, stačí použiť .unsub Daily Updates\n"
+                        ;
         return dailyAnnouncements;
     }
 
@@ -45,9 +60,9 @@ public class DailyMessage implements Runnable {
         ScheduledExecutorService scheduler = Executors.newSingleThreadScheduledExecutor();
 
         Runnable task = new DailyMessage();
-        int initialDelay = 0;
+        int initialDelay = 1;
         int periodicDelay = 1;
-        scheduler.scheduleAtFixedRate(task,initialDelay , periodicDelay, TimeUnit.HOURS);
+        scheduler.scheduleAtFixedRate(task,initialDelay , periodicDelay, TimeUnit.MINUTES);
 
     }
 }

@@ -31,13 +31,14 @@ public class Bot  {
         //------------------------------------------------------------//
         ScrapingData scraping = new ScrapingData();
         scraping.scraping();
-        scraping.print(scraping.getAllT(), scraping.getPcrP());
 
         //------------------------------------------------------------//
         //daily auto update info
         DailyMessage dailyMessage = new DailyMessage();
         dailyMessage.setPcr(scraping.getPcrP());
         dailyMessage.setTest(scraping.getAllT());
+        dailyMessage.setDeathGuys(scraping.getDeathP());
+        dailyMessage.setVaccineNumber(scraping.getVac11());
 
         dailyMessage.messageOfTheData();
         dailyMessage.run();
