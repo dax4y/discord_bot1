@@ -7,23 +7,38 @@ import java.util.concurrent.Executors;
 import java.util.concurrent.ScheduledExecutorService;
 import java.util.concurrent.TimeUnit;
 
-public class DailyMessage extends ScrapingData implements Runnable {
+public class DailyMessage implements Runnable {
     JDA jda = Bot.getJda();
+    Bot bot = new Bot();
+    private String test = "";
+    private String pcr = "";
+
+    public void setTest(String test) {
+        this.test = test;
+    }
+
+    public void setPcr(String pcr) {
+        this.pcr = pcr;
+    }
 
 
-    String dailyAnnouncements =
-                    "__**DAILY AUTO-UPDATE INFO**__ \n\n" +
-                    "**COVID**\n\n" +
-                    "Vykonaných PCR testov bolo " + getAllT() +" obeti \n" +
-                    "Pozitívne testovaných ľudí pribudlo " + getPcrP() +"\n" +
-                    "Za posledný deň zomrelo " + "\n" +
-                    "Taktiež jedna z vecí ktoré pribudli na serveri sú nové Emoji";
+
+    public String text() {
+        String dailyAnnouncements =
+                "__**DAILY AUTO-UPDATE INFO**__ \n\n" +
+                        "**COVID**\n\n" +
+                        "Vykonaných PCR testov bolo " + test + " obeti \n" +
+                        "Pozitívne testovaných ľudí pribudlo " + pcr + "\n" +
+                        "Za posledný deň zomrelo " + "\n" +
+                        "Taktiež jedna z vecí ktoré pribudli na serveri sú nové Emoji";
+        return dailyAnnouncements;
+    }
 
     //scheduler loop
     @Override
     public void run() {
         TextChannel textChannel = jda.getTextChannelById(806591609789218829L);
-        textChannel.sendMessage(dailyAnnouncements).queue();
+        textChannel.sendMessage(text()).queue();
     }
 
     public void messageOfTheData() {

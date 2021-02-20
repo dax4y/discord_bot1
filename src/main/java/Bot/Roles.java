@@ -1,6 +1,7 @@
 package Bot;
 
 import net.dv8tion.jda.api.EmbedBuilder;
+import net.dv8tion.jda.api.entities.Guild;
 import net.dv8tion.jda.api.entities.TextChannel;
 import net.dv8tion.jda.api.events.guild.member.GuildMemberJoinEvent;
 import net.dv8tion.jda.api.events.guild.member.GuildMemberLeaveEvent;
@@ -8,6 +9,7 @@ import net.dv8tion.jda.api.hooks.ListenerAdapter;
 
 import javax.annotation.Nonnull;
 import java.util.List;
+import java.util.Objects;
 import java.util.Random;
 
 public class Roles extends ListenerAdapter {
@@ -28,7 +30,6 @@ public class Roles extends ListenerAdapter {
             "**[member]** just showed up. Hold my beer.",
             "Challenger approaching - **[member]** has appeared!",
             "It's a bird! It's a plane! Nevermind, it's just **[member]**.",
-            "It's **[member]**! Praise the sun! [T]/",
             "Roses are red, violets are blue, **[member]** joined this server with you",
             "Hello. Is it **[member]** you're looking for?",
             "**[member]** is here to kick butt and chew bubblegum. And **[member]** is all out of gum.",
@@ -69,8 +70,20 @@ public class Roles extends ListenerAdapter {
         channelPlsChannel.sendMessage(join.build()).queue();
 
         //role add
-        //event.getGuild().addRoleToMember(event.getMember(), event.getGuild().getRoleById(809751992704303126L)).complete();
         event.getGuild().modifyMemberRoles(event.getMember(), event.getGuild().getRolesByName("member", true)).complete();
+
+        Guild guild = event.getJDA().getGuildById(801860011105714176L);//pupkoši
+
+        if (guild != null) {
+            event.getGuild().addRoleToMember(event.getMember(), Objects.requireNonNull(event.getGuild().getRoleById(812320852783136800L))).queue();//class
+            event.getGuild().addRoleToMember(event.getMember(), Objects.requireNonNull(event.getGuild().getRoleById(812323615256346664L))).queue();//group
+            event.getGuild().addRoleToMember(event.getMember(), Objects.requireNonNull(event.getGuild().getRoleById(812324417580564490L))).queue();//mentions
+            event.getGuild().addRoleToMember(event.getMember(), Objects.requireNonNull(event.getGuild().getRoleById(801864518724091905L))).queue();//member
+            event.getGuild().addRoleToMember(event.getMember(), Objects.requireNonNull(event.getGuild().getRoleById(812324646229770300L))).queue();//daily info
+            event.getGuild().addRoleToMember(event.getMember(), Objects.requireNonNull(event.getGuild().getRoleById(812324795555381248L))).queue();//Server update
+        }
+
+        //event.getGuild().modifyMemberRoles(event.getMember(), event.getGuild().getRolesByName("member", true)).queue();
 
     }
     @Override
