@@ -1,7 +1,6 @@
 package Bot;
 
-import Bot.scraping.DailyMessage;
-import Bot.scraping.ScrapingData;
+import Bot.scraping.MessageBuilder;
 import net.dv8tion.jda.api.JDA;
 import net.dv8tion.jda.api.JDABuilder;
 import net.dv8tion.jda.api.OnlineStatus;
@@ -29,20 +28,8 @@ public class Bot  {
         jda.awaitReady();
 
         //------------------------------------------------------------//
-        ScrapingData scraping = new ScrapingData();
-        scraping.scraping();
-
-        //------------------------------------------------------------//
-        //daily auto update info
-        DailyMessage dailyMessage = new DailyMessage();
-        dailyMessage.setPcr(scraping.getPcrP());
-        dailyMessage.setTest(scraping.getAllT());
-        dailyMessage.setDeathGuys(scraping.getDeathP());
-        dailyMessage.setVaccineNumber(scraping.getVac11());
-        dailyMessage.setNameDay(scraping.getNameDayFinal());
-
-        dailyMessage.messageOfTheData();
-        dailyMessage.run();
+        MessageBuilder messageBuilder = new MessageBuilder();
+        messageBuilder.run();
 
         //------------------------------------------------------------//
 
