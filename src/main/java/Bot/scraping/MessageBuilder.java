@@ -18,7 +18,7 @@ public class MessageBuilder implements Runnable {
 
     // in seconds
     private static final int PERIOD = 24;
-    private static final int INITIAL_DELAY = 22;
+    private static final int INITIAL_DELAY = 1;
     JDA jda = Bot.getJda();
 
 
@@ -26,11 +26,13 @@ public class MessageBuilder implements Runnable {
         scheduler.scheduleAtFixedRate(this, INITIAL_DELAY, PERIOD, TimeUnit.HOURS);
     }
 
-    //time and date
-    SimpleDateFormat formatter= new SimpleDateFormat("dd-MM-yyyy");
-    Date date = new Date(System.currentTimeMillis());
+
 
     public String createMessage(Message message) {
+        //time and date
+        SimpleDateFormat formatter= new SimpleDateFormat("dd-MM-yyyy");
+        Date date = new Date(System.currentTimeMillis());
+
         return "\n__**DAILY AUTO-UPDATE INFO**__📨 __**(" + formatter.format(date) + ")**__\n\n" +
                 "🦠***COVID***🦠\n\n" +
                 "Vykonaných PCR testov bolo **" + message.getTest() + "**.\n" +
