@@ -47,7 +47,7 @@ public class ScrapingData {
         //5.
         Elements nameD = doc.select("#container #header #headline2 #headline21 ");
         String nameDay = nameD.text().replace("meniny <div id=\"headline21\">", "");
-        System.out.println(nameDay);
+        //System.out.println(nameDay);
         //String name = nameDay.substring( 0, nameDay.indexOf(","));
         nameDayFinal = nameDay;
 
