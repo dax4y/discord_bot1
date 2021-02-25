@@ -18,7 +18,7 @@ public class MessageBuilder implements Runnable {
 
     // in seconds
     private static final int PERIOD = 24;
-    private static final int INITIAL_DELAY = 13;
+    private static final int INITIAL_DELAY = 0;
     JDA jda = Bot.getJda();
 
 
@@ -50,7 +50,7 @@ public class MessageBuilder implements Runnable {
     //scheduler loop
     @Override
     public void run() {
-        TextChannel textChannel = jda.getTextChannelById(806591609789218829L);
+        TextChannel textChannel = jda.getTextChannelById(809754914750332928L);
 
         ScrapingData scraping = new ScrapingData();
 
