@@ -23,22 +23,25 @@ public class ScrapingData {
 
         Document document = Jsoup.connect(url).get();
         //1.
-        Elements allTests = document.select("#block_5e9990e25ffff .govuk-body");
-        String allTest = allTests.text().replace("Vykonaných PCR testov Pribudlo: ", "");
+        Elements allTests = document.select("#block_603780b691b98 .govuk-heading-l");
+        String allTest = allTests.text();//.replace("Vykonaných PCR testov Pribudlo: ", "");
+        //System.out.println(allTest);
         allT = allTest;
         //2.
-        Elements positivePlus = document.select("#block_5e9991c460002 .govuk-body");
-        String pcrPositive = positivePlus.text().replace("Pozitívnych ľudí testovaných PCR Pribudlo: ", "");
+        Elements positivePlus = document.select("#block_6037862491b9a .govuk-heading-l");
+        String pcrPositive = positivePlus.text();//.replace("Pozitívnych ľudí testovaných PCR Pribudlo: ", "");
+        //System.out.println(pcrPositive);
         pcrP = pcrPositive;
         //3.
-        Elements deathMate = document.select("#block_5e9991ed60005 .govuk-body");
-        String death = deathMate.text().replace("Úmrtí Pribudlo: ", "");
+        Elements deathMate = document.select("#block_6037a30ebe76d .govuk-heading-l");
+        String death = deathMate.text();//.replace("Úmrtí Pribudlo: ", "");
+        //System.out.println(death);
         deathP = death;
         //4.
-        Elements vaccine1 = document.select("#block_6007f1bbea5a1 .govuk-body");
-        Elements vaccine2 = document.select("#block_6022f9c0fe1c9 .govuk-body");
-        String vac1 = vaccine1.text().replace("Počet zaočkovaných osôb prvou dávkou Pribudlo: ", "");
-        String vac2 = vaccine2.text().replace("Počet zaočkovaných osôb druhou dávkou Pribudlo: ", "");
+        Elements vaccine1 = document.select("#block_60379179c4f8b .govuk-heading-l");
+        Elements vaccine2 = document.select("#block_603791edc4f8d .govuk-heading-l");
+        String vac1 = vaccine1.text();//.replace("Počet zaočkovaných osôb prvou dávkou Pribudlo: ", "");
+        String vac2 = vaccine2.text();//.replace("Počet zaočkovaných osôb druhou dávkou Pribudlo: ", "");
         vaccineFirst = vac1;
         vaccineTwo = vac2;
 

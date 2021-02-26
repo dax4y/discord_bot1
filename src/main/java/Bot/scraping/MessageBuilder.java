@@ -18,7 +18,7 @@ public class MessageBuilder implements Runnable {
 
     // in seconds
     private static final int PERIOD = 24;
-    private static final int INITIAL_DELAY = 0;
+    private static final int INITIAL_DELAY = 22;
     JDA jda = Bot.getJda();
 
 
