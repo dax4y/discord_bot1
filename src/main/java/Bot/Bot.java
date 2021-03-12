@@ -29,7 +29,7 @@ public class Bot  {
 
         //------------------------------------------------------------//
         MessageBuilder messageBuilder = new MessageBuilder();
-        messageBuilder.run();
+        //messageBuilder.run();
         //------------------------------------------------------------//
 
     }
