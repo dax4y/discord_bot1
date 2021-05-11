@@ -14,7 +14,7 @@ public class Bot  {
 
 
     public static void main(String[] args) throws Exception {
-        jda = new JDABuilder().setToken("TOKEN").build(); //(AccountType.BOT).setToken
+        jda = new JDABuilder().setToken(System.getenv("TOKEN")).build(); //(AccountType.BOT).setToken
         jda.getPresence().setStatus(OnlineStatus.ONLINE);
         jda.getPresence().setActivity(Activity.playing("developing java"));
 
